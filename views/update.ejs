@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <link rel="stylesheet" href="styles.css">
+        <style>
+            body{
+    margin:0;
+    /* background-image: url("C:\Users\Nagesh\Desktop\Project\DBMS project\image1.jpg"); */
+    /* background:linear-gradient(to right,rgb(120, 201, 207),rgb(104, 104, 223)) */
+}
+.bu{
+    height:3rem;
+    width:6rem;
+    margin-right:0;
+    margin-left:0;
+    color:blue;
+     background-color: transparent;
+    background-repeat: no-repeat;
+    overflow:hidden;
+    outline:none;
+}
+.bu:hover{
+    background-color: rgba(34, 43, 38, 0.171);
+    text-decoration: none;
+}
+.l{
+    color:rgb(0, 4, 255);
+    text-decoration: none; 
+    margin-top:8rem;
+}
+ .loim{
+    /* display:flex; */
+    margin-left: 32%;
+} 
+.login{
+    margin-top:4.5rem;
+    padding-top:13vh;
+    padding-bottom:13vh;
+    height:30vh;
+    width:20rem;
+    text-align:center;
+    margin-left:10vw;
+    border:solid .1rem rgb(14, 13, 13);
+    border-radius: 2rem;
+    flex:30%;
+}
+.loginput{
+    margin-bottom:1rem;
+    height:2.5rem;
+    width:12rem;
+    background:transparent; 
+    color:rgb(243, 234, 234);
+    text-align:center;
+}
+::placeholder {color:rgba(243, 237, 243, 0.781);}
+.logimg{
+    flex:70%;
+    height:60vh;
+    width:40vw;
+    margin:5rem; 
+}
+.rf{
+    align-items:center ;
+}
+.rfi{
+    background: transparent;
+}
+label,input{
+   margin-bottom:2%;
+   margin-top:2%;
+   height:1.5rem;
+}
+table{
+    margin-left: auto;
+    margin-right: auto;
+}
+input[type=number]::-webkit-inner-spin-button,
+              input[type=number]::-webkit-outer-spin-button{                  /*to remove arrows in number input field*/
+                  -webkit-appearance:none;
+                  margin:0;
+              }
+.a12{
+    width:200px;
+}
+
+        </style>
+    </head>
+    <body style="background:linear-gradient(to left,yellow,yellowgreen); text-align:center;">
+        <img src="logo.jpg" alt="logo" height="100px" width="100px" style="display:inline-block;margin-top:10px; float:left; margin-left: 50px;">
+        <h1 style="display:inline-block;">Cake My Day</h1>
+        <div>
+            <a href="/homepage1" class="l"><button class="bu">Home</button></a>
+            <a href="/add" class="l"><button class="bu">Add</button></a>
+            <a href="/delete" class="l"><button class="bu">Delete</button></a>
+            <a href="/cupdate" class="l"><button class="bu">Cupdate</button></a>
+            <a href="/orderdetails" class="l"><button class="bu">Orders</button></a>
+            <a href="/logout" class="l"><button class="bu">Logout</button></a>
+        </div>
+        <br>
+        <br>
+        <% for(var i=0;i<cakes.length;i++){%>
+        <table border="1" style="display: inline-block; font-size:1rem; margin-right:2rem;">
+            <tr>
+                <td>Details</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Cake ID</td>
+                <td class="a12"><%=cakes[i].cid%></td>
+            </tr>
+            <tr>
+                <td>Cake Name</td>
+                <td><%=cakes[i].cname%></td>
+            </tr>
+            <tr>
+                <td>Type</td>
+                <td><%=cakes[i].type%></td>
+            </tr>
+            <tr>
+                <td>Available</td>
+                <td><%=cakes[i].qty%></td>
+            </tr>
+            <tr>
+                <td>Price</td>
+                <td><%=cakes[i].cost%></td>
+            </tr>
+        </table>
+        <img src="<%=cakes[i].cname%>.jpg" alt="<%=cakes[i].cname%>" style="display: inline-block; width:10rem; height:9.25rem;"><br>
+        <br>
+        <form action="" method="post">
+        <input type="hidden" name="cname" value="<%=cakes[i].cname%>">
+        <label>Enter the quantity</label>
+        <input type="number" name="qty" id="quantity<%=cakes[i].cid%>" value="0" size="4" maxlength="4">       
+        <button type="submit" style="background-color: orange; padding:.5rem; margin-top:2rem;">Ok</button>  
+         </form>
+        <br>
+        <%}%>
+    </body>
+</html>

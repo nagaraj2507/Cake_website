@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <style>
+            .a{
+                margin-bottom:1.5rem;
+            }
+            .b{
+                font-size:1.5rem;
+            }
+            input[type=number]::-webkit-inner-spin-button,
+              input[type=number]::-webkit-outer-spin-button{                  /*to remove arrows in number input field*/
+                  -webkit-appearance:none;
+                  margin:0;
+              }
+            .bu{
+    height:3rem;
+    width:6rem;
+    margin-right:0;
+    margin-left:0;
+    color:blue;
+     background-color: transparent;
+    background-repeat: no-repeat;
+    overflow:hidden;
+    outline:none;
+}
+.bu:hover{
+    background-color: rgba(34, 43, 38, 0.171);
+    text-decoration: none;
+}
+.l{
+    color:blue;
+    text-decoration: none; 
+    margin-top:8rem;
+}
+ .loim{
+    /* display:flex; */
+    margin-left: 32%;
+} 
+.login{
+    margin-top:4.5rem;
+    padding-top:13vh;
+    padding-bottom:13vh;
+    height:30vh;
+    width:20rem;
+    text-align:center;
+    margin-left:10vw;
+    border:solid .1rem rgb(14, 13, 13);
+    border-radius: 2rem;
+    flex:30%;
+}
+.loginput{
+    margin-bottom:1rem;
+    height:2.5rem;
+    width:12rem;
+    background:transparent; 
+    color:rgb(243, 234, 234);
+    text-align:center;
+}
+::placeholder {color:rgba(243, 237, 243, 0.781);}
+.logimg{
+    flex:70%;
+    height:60vh;
+    width:40vw;
+    margin:5rem; 
+}
+.rf{
+    align-items:center ;
+}
+.rfi{
+    background: transparent;
+}
+label,input{
+   margin-bottom:2%;
+   margin-top:2%;
+   height:1.5rem;
+}
+table{
+    margin-left: auto;
+    margin-right: auto;
+}
+.h{
+    display: inline-block;
+    border:1.5px solid black;
+    padding-top:.5rem;
+    margin-bottom:1rem;
+}
+.hi{
+    width:10rem;
+    height:10rem;
+    margin:0 1rem;
+}
+
+
+        </style>
+        </style>
+    </head>
+    <!-- <body style="background:linear-gradient( to right,#f510c8,#532566);text-align:center;margin-top: 15%;"> -->
+            <body style="background:linear-gradient(to right,yellow,yellowgreen); text-align:center;">
+                <img src="logo.jpg" alt="logo" height="100px" width="100px" style="display:inline-block;margin-top:10px;float:left;margin-left: 50px;">
+                <h1 style="display:inline-block;">Cake My Day</h1>
+                <div>
+                <a href="/homepage" class="l"><button class="bu">Home</button></a>
+                <!-- <a href="/cart" class="l"><button class="bu">Cart</button></a> -->
+                <!-- <a href="/order" class="l"><button class="bu">Orders</button></a> -->
+                <a href="/logout" class="l"><button class="bu">Logout</button></a>
+                </div>
+                <div style="margin:auto auto; box-shadow: 1px 1px 1px 1px;   padding:2rem 0; border-radius: 20px; width:40rem; height:15rem;margin-top:2rem;">
+            <form action="/pay2" method="get">
+            <label class="b">Customer:</label>
+            <input type="text" placeholder="<%=name%>" class="a b" value="<%=name%>" required>
+            <br>
+            <label class="b">Total Cost:</label>
+            <input type="number" placeholder="<%=price%>" value="<%=price%>" class="a b" required><br>
+            <input type="radio" name="name">
+            <img src="mastercard.png" style="height:20px;width:30px;display:inline-block;">
+            <input type="radio" name="name">
+            <img src="visa.png" style="height:20px;width:30px;display:inline-block;" ><br>
+            <button type="submit" class="b" style="margin-top:1.5rem;">Proceed To Pay</button>
+        </form>
+        </div>
+    </body>
+</html>

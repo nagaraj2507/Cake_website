@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <link rel="stylesheet" href="css\styles.css">
+        <style>
+            body{
+    margin:0;
+    /* background-image: url("C:\Users\Nagesh\Desktop\Project\DBMS project\image1.jpg"); */
+    /* background:linear-gradient(to right,rgb(120, 201, 207),rgb(104, 104, 223)) */
+}
+.bu{
+    height:3rem;
+    width:6rem;
+    margin-right:0;
+    margin-left:0;
+    color:yellow;
+     background-color: transparent;
+    background-repeat: no-repeat;
+    overflow:hidden;
+    outline:none;
+}
+.bu:hover{
+    background-color: rgba(34, 43, 38, 0.171);
+    text-decoration: none;
+}
+.l{
+    color:rgba(234, 227, 235, 0.685);
+    text-decoration: none; 
+    margin-top:8rem;
+}
+ .loim{
+    /* display:flex; */
+    margin-left: 32%;
+} 
+.login{
+    margin-top:4.5rem;
+    padding-top:13vh;
+    padding-bottom:13vh;
+    height:30vh;
+    width:20rem;
+    text-align:center;
+    margin-left:10vw;
+    border:solid .1rem rgb(14, 13, 13);
+    border-radius: 2rem;
+    flex:30%;
+}
+.loginput{
+    margin-bottom:1rem;
+    height:2.5rem;
+    width:12rem;
+    background:transparent; 
+    color:rgb(243, 234, 234);
+    text-align:center;
+}
+::placeholder {color:rgba(243, 237, 243, 0.781);}
+.logimg{
+    flex:70%;
+    height:60vh;
+    width:40vw;
+    margin:5rem; 
+}
+.rf{
+    align-items:center ;
+}
+.rfi{
+    background: transparent;
+}
+label,input{
+   margin-bottom:2%;
+   margin-top:2%;
+   height:1.5rem;
+}
+table{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+        </style>
+    </head>
+    <body style="background-image: url('image1.jpg '); background-size: 100%; text-align:center;">
+        <img src="logo.jpg" alt="logo" height="100px" width="100px" style="display:inline-block;margin-top:10px; float:left; margin-left: 50px;">
+        <h1 style="display:inline-block; font-style: oblique; color: darksalmon;">Cake My Day</h1>
+        <div>
+            <a href="/" class="l"><button class="bu">Login</button></a>
+            <a href="/register" class="l"><button class="bu">Register</button></a>
+        </div>
+        <div style="border: 1px solid black; margin-top:2.5rem; height:80vh;
+        width:20rem;margin-left:40vw;
+        text-align:center;">
+        <form action="/register" method="POST">
+            <select class="loginput" name="typeofuser">
+                <option style="background-color: black;" value="Customer">Customer</option>
+                <option style="background-color: black;" value="Manager">Manager</option>
+            </select><br>
+            <table>
+                <tr>
+                    <td><label class="rfl" style=" color:yellow;">Name</label></td>
+                    <td><input type="text" class="rfi" name="name" style=" color:yellow;"><br></td>
+                </tr>
+                <tr>
+                    <td><label class="rfl" style=" color:yellow;">Password</label></td>
+                    <td><input type="password" class="rfi" name="password" style=" color:yellow;" id="password"><br></td>
+                </tr>
+                <tr>
+                    <td><label class="rfl" style=" color:yellow;">Confirm Password</label></td>
+                    <td><input type="password" class="rfi" name="cpassword" style=" color:yellow;" id="confirmpassword" onkeyup="check()"><br></td>
+                </tr>
+                <tr>
+                    <td><label class="rfl" style=" color:yellow;">Mobile</label></td>
+                    <td><input type="text" class="rfi" name="contactno" style=" color:yellow;" minlength="10"><br></td>
+                </tr>
+                <tr>
+                    <td><label class="rfl" style=" color:yellow;">Email</label></td>
+                    <td><input type="email" class="rfi" name="email" style=" color:yellow;"><br></td>
+                </tr>
+                <tr>
+                    <td><label class="rfl" style=" color:yellow;">Address</label></td>
+                    <td><textarea rows="5" cols="20" name="address" style="background:none; color:yellow;"></textarea><br></td>
+                </tr>
+                <tr>
+                    <td><label class="rfl" style=" color:yellow;">Only for manager<br>Enter key</label></td>
+                    <td><input type="text" class="rfi" name="scode" style=" color:yellow;"><br></td>
+                </tr>
+                </table>
+                <span id="message"></span>
+                <div class="error"></div>
+            <!-- <button class="rf" type="submit">Submit</button> -->
+            <input type="submit" value="Submit" class="rf">
+            </form>
+        </div>
+    <script type="text/javascript">
+        //for checking register password
+         function check() {
+          if (document.getElementById('password').value ==
+            document.getElementById('confirmpassword').value) {
+            document.getElementById('message').style.color = 'green';
+            document.getElementById('message').innerHTML = 'Password matching';
+          } else {
+            document.getElementById('message').style.color = 'red';
+            document.getElementById('message').innerHTML = 'Password not matching';
+          }
+        }
+        const form = document.querySelector("form");
+        const error = document.querySelector('.error');
+        
+        form.addEventListener("submit",async(e)=>{
+            e.preventDefault();
+            console.log("pressed");
+            error.textContent = '';
+            const typeofuser=form.typeofuser.value;
+            
+          const name = form.name.value;
+          const email = form.email.value;
+          const password = form.password.value;
+          const cpassword = form.cpassword.value;
+          const contactno = form.contactno.value;
+          const address = form.address.value;
+          console.log(typeofuser,name,password,cpassword,email,contactno,address);
+        
+          const scode = form.scode.value;
+
+          console.log(scode);
+          if(document.getElementById("message").innerHTML!="Password not matching"){
+              try{
+                  const res=await fetch("/register",{
+                      method:"POST",
+                      body:JSON.stringify({typeofuser,name,password,cpassword,contactno,email,address,scode}),
+                      headers:{'Content-Type':'application/json'}
+                  });
+                  const data = await res.json();
+                console.log(data);
+                if (data.errors) {
+                error.textContent = data.errors;
+                }
+                if (data.user) {
+                location.assign('/register');
+                }
+
+              }
+              catch (err) {
+                   console.log(err);
+              }
+            console.log("hi");
+          }
+        });
+       </script>
+      </body>
+</html>

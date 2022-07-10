@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <link rel="stylesheet" href="css\styles.css">
+        <style>
+             body{
+    margin:0;
+    /* background-image: url("C:\Users\Nagesh\Desktop\Project\DBMS project\image1.jpg"); */
+    /* background:linear-gradient(to right,rgb(120, 201, 207),rgb(104, 104, 223)) */
+}
+.bu{
+    height:3rem;
+    width:6rem;
+    margin-right:0;
+    margin-left:0;
+    color:blue;
+     background-color: transparent;
+    background-repeat: no-repeat;
+    overflow:hidden;
+    outline:none;
+}
+.bu:hover{
+    background-color: rgba(34, 43, 38, 0.171);
+    text-decoration: none;
+}
+.l{
+    color:blue;
+    text-decoration: none; 
+    margin-top:8rem;
+}
+ .loim{
+    /* display:flex; */
+    margin-left: 32%;
+} 
+.login{
+    margin-top:4.5rem;
+    padding-top:13vh;
+    padding-bottom:13vh;
+    height:30vh;
+    width:20rem;
+    text-align:center;
+    margin-left:10vw;
+    border:solid .1rem rgb(14, 13, 13);
+    border-radius: 2rem;
+    flex:30%;
+}
+.loginput{
+    margin-bottom:1rem;
+    height:2.5rem;
+    width:12rem;
+    background:transparent; 
+    color:rgb(243, 234, 234);
+    text-align:center;
+}
+::placeholder {color:rgba(243, 237, 243, 0.781);}
+.logimg{
+    flex:70%;
+    height:60vh;
+    width:40vw;
+    margin:5rem; 
+}
+.rf{
+    align-items:center ;
+}
+.rfi{
+    background: transparent;
+}
+label,input{
+   margin-bottom:2%;
+   margin-top:2%;
+   height:1.5rem;
+}
+table{
+    margin-left: auto;
+    margin-right: auto;
+}
+.h{
+    display: inline-block;
+    border:1.5px solid black;
+    padding-top:.5rem;
+    margin-bottom:1rem;
+}
+.hi{
+    width:10rem;
+    height:10rem;
+    margin:0 1rem;
+}
+
+
+        </style>
+    </head>
+    <body style="background:linear-gradient(to right,yellow,yellowgreen); text-align:center;">
+        <img src="logo.jpg" alt="logo" height="100px" width="100px" style="display:inline-block;margin-top:10px;float:left;margin-left: 50px;">
+        <h1 style="display:inline-block;">Cake My Day</h1>
+        <div>
+        <a href="/homepage" class="l"><button class="bu">Home</button></a>
+        <a href="/cart" class="l"><button class="bu">Cart</button></a>
+        <a href="/order" class="l"><button class="bu">Orders</button></a>
+        <a href="/logout" class="l"><button class="bu">Logout</button></a>
+        </div>
+        <h3>Available Cakes</h3>
+        <div>
+            <% for(var i=0;i<cakes.length;i++){ %>
+                <div class="h">
+                    <a href="/details"><img src="<%=cakes[i].cname%>.jpg" alt="images/<%=cakes[i].cname%>" class="hi"></a>
+                    <p><%=cakes[i].cname%></p>
+                </div>
+            <% } %>
+        </div>
+    </body>
+</html>
