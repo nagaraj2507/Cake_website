@@ -16,6 +16,7 @@
     margin-right:0;
     margin-left:0;
     color:yellow;
+    cursor: pointer;
      background-color: transparent;
     background-repeat: no-repeat;
     overflow:hidden;
@@ -77,6 +78,40 @@ table{
     margin-right: auto;
 }
 
+.button-42 {
+  background-color: initial;
+  background-image: linear-gradient(-180deg, #FF7E31, #E62C03);
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Inter,-apple-system,system-ui,Roboto,"Helvetica Neue",Arial,sans-serif;
+  height: 30px;
+  line-height: 30px;
+  outline: 0;
+  overflow: hidden;
+  padding: 0 20px;
+  pointer-events: auto;
+  position: relative;
+  text-align: center;
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: top;
+  white-space: nowrap;
+  margin-top: 1rem;
+  margin-bottom: .5rem;
+  width: 60%;
+  z-index: 9;
+  border: 0;
+  transition: box-shadow .2s;
+}
+
+.button-42:hover {
+  box-shadow: rgba(253, 76, 0, 0.5) 0 3px 8px;
+}
+
 
         </style>
     </head>
@@ -87,18 +122,19 @@ table{
             <a href="/" class="l"><button class="bu">Login</button></a>
             <a href="/register" class="l"><button class="bu">Register</button></a>
         </div>
-        <div style="border: 1px solid black; margin-top:2.5rem; height:80vh;
-        width:20rem;margin-left:40vw;
+        <div style="margin-top:2.5rem;margin-bottom: 2.5rem;background-color: rgba(75, 74, 74, 0.61);
+        backdrop-filter: blur(5px); border-radius: 1rem; 
+        width:20rem;margin-left:40vw; padding-left: 1rem;padding-right: 1rem;padding-bottom: 1rem;
         text-align:center;">
         <form action="/register" method="POST">
-            <select class="loginput" name="typeofuser">
-                <option style="background-color: black;" value="Customer">Customer</option>
-                <option style="background-color: black;" value="Manager">Manager</option>
+            <select class="loginput" name="typeofuser" style="margin-top: 1rem;cursor:pointer;">
+                <option style="background-color: black;cursor:pointer;" value="Customer">Customer</option>
+                <option style="background-color: black;cursor:pointer;" value="Manager">Manager</option>
             </select><br>
             <table>
                 <tr>
                     <td><label class="rfl" style=" color:yellow;">Name</label></td>
-                    <td><input type="text" class="rfi" name="name" style=" color:yellow;"><br></td>
+                    <td><input type="text" class="rfi" name="name" style=" color:yellow;" ><br></td>
                 </tr>
                 <tr>
                     <td><label class="rfl" style=" color:yellow;">Password</label></td>
@@ -128,7 +164,8 @@ table{
                 <span id="message"></span>
                 <div class="error"></div>
             <!-- <button class="rf" type="submit">Submit</button> -->
-            <input type="submit" value="Submit" class="rf">
+            <button class="button-42" role="button" type="submit">Submit</button>
+            <!-- <input type="submit" value="Submit" class="rf"> -->
             </form>
         </div>
     <script type="text/javascript">

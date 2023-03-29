@@ -16,6 +16,7 @@
     margin-right:0;
     margin-left:0;
     color:yellow;
+    cursor: pointer;
      background-color: transparent;
     background-repeat: no-repeat;
     overflow:hidden;
@@ -77,6 +78,40 @@ table{
     margin-right: auto;
 }
 
+.button-42 {
+  background-color: initial;
+  background-image: linear-gradient(-180deg, #FF7E31, #E62C03);
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Inter,-apple-system,system-ui,Roboto,"Helvetica Neue",Arial,sans-serif;
+  height: 30px;
+  line-height: 30px;
+  outline: 0;
+  overflow: hidden;
+  padding: 0 20px;
+  pointer-events: auto;
+  position: relative;
+  text-align: center;
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: top;
+  white-space: nowrap;
+  margin-top: 1rem;
+  margin-bottom: .5rem;
+  width: 60%;
+  z-index: 9;
+  border: 0;
+  transition: box-shadow .2s;
+}
+
+.button-42:hover {
+  box-shadow: rgba(253, 76, 0, 0.5) 0 3px 8px;
+}
+
         </style>
     </head>
     <body style="background-image: url('image1.jpg '); background-size: 100%; text-align:center;">
@@ -86,9 +121,12 @@ table{
             <a href="/" class="l"><button class="bu">Login</button></a>
             <a href="/register" class="l"><button class="bu">Register</button></a>
         </div>
-        <div class="loim">
-        <form action="/" class="login" method="POST">
-            <select class="loginput" name="typeofuser">
+        <div style="margin-top:2.5rem;margin-bottom: 2.5rem;background-color: rgba(75, 74, 74, 0.61);
+        backdrop-filter: blur(5px); border-radius: 1rem; 
+        width:20rem;margin-left:40vw;padding:2rem;margin-top: 4rem;
+        text-align:center;">
+        <form action="/"  method="POST">
+            <select class="loginput" name="typeofuser" style="cursor:pointer;">
                 <option style="background-color: black;">Customer</option>
                 <option style="background-color: black;">Manager</option>
             </select><br>
@@ -96,8 +134,7 @@ table{
             <input type="password" name="password" placeholder="Password" class="loginput"><br>
             <span id='message'></span>
             <div class="error"></div>
-            <!-- <button type="submit" class="loginput">Login</button> -->
-            <input type="submit" class="loginput" value="Login">
+            <button class="button-42" role="button" type="submit">Login</button>
         </form>
          </div> 
     </body>

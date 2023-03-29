@@ -10,7 +10,8 @@ router.get("/",async(req,res)=>{
     }else{
         const verify=jwt.verify(token,'hihowareyouimfine');
         if(verify){
-            res.render("delete",{layout:false});
+            const cakes=await deletion.fetch_cakes(req,res);
+            res.render("delete",{layout:false,cakes:cakes});
         }else{
             res.render("login",{layout:false});
         }
@@ -26,7 +27,8 @@ router.post("/",async(req,res)=>{
         const verify=jwt.verify(token,'hihowareyouimfine');
         if(verify){
     await deletion.delete_cake(req,res);
-    res.render("delete",{layout:false});
+    const cakes=await deletion.fetch_cakes(req,res);
+    res.render("delete",{layout:false,cakes:cakes});
         }else{
             res.render("login",{layout:false});
         }

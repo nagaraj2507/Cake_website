@@ -78,9 +78,11 @@ table{
 }
 .h{
     display: inline-block;
-    border:1.5px solid black;
-    padding-top:.5rem;
+    padding:1rem;
     margin-bottom:1rem;
+    background: rgb(221, 220, 220);
+    box-shadow: 5px 5px rgb(114, 114, 114);
+    margin-left: 1rem;
 }
 .hi{
     width:10rem;
@@ -91,22 +93,23 @@ table{
 
         </style>
     </head>
-    <body style="background:linear-gradient(to right,yellow,yellowgreen); text-align:center;">
+    <body style="background:#DDD0C8; text-align:center;">
         <img src="logo.jpg" alt="logo" height="100px" width="100px" style="display:inline-block;margin-top:10px;float:left;margin-left: 50px;">
         <h1 style="display:inline-block;">Cake My Day</h1>
         <div>
-        <a href="/homepage" class="l"><button class="bu">Home</button></a>
-        <a href="/logout" class="l"><button class="bu">Logout</button></a>
+        <a href="/homepage" class="l" style="color:black;margin-right: 1.25rem;">Home</a>
+        <a href="/logout" class="l" style="color:black;margin-right: 1.25rem;">Logout</a>
         </div>
         <br>
         <br>
         <%for(var i=0;i<cakes.length;i++){%>
-            <img src="<%=cakes[i].cname%>.jpg" alt="<%=cakes[i].cname%>" style="width:10rem; height:9.25rem;">
-            <div style="font-size:1rem; margin-right:2rem;">
+            
+            <div class="h">
+                <img src="<%=cakes[i].cname%>.jpg" alt="<%=cakes[i].cname%>" style="width:10rem; height:9.25rem;">
             <p>Cake Name:<%=cakes[i].cname%></p>
             <p>Quantity=<%=cakes[i].oqty%></p>
             <p>Rs.<%=cakes[i].price%></p>
-            </div>
+            
             <form action="/pay1" method="POST">
                 <input type="hidden" name="cname" value="<%=cakes[i].cname%>">
                 <input type="hidden" name="flavour" value="<%=cakes[i].flavour%>">
@@ -115,15 +118,16 @@ table{
                 <input type="hidden" name="price" value="<%=cakes[i].price%>">
                 <input type="hidden" name="cid" value="<%=cakes[i].cid%>">
                 <input type="hidden" name="email" value="<%=cakes[i].email%>">
-                <button type="submit" style="background-color: orange; padding:.5rem; margin-top:2rem;display:inline-block;">Proceed To Pay</button>
+                <button type="submit" style="background-color: orange;border:none;cursor:pointer; padding:.5rem; margin-top:2rem;margin-bottom:1rem;display:inline-block;">Proceed To Pay</button>
             </form>
             <form action="/order/delete" method="POST">
                 <input type="hidden" name="cname" value="<%=cakes[i].cname%>">
                 <input type="hidden" name="orderid" value="<%=cakes[i].orderid%>">
                 <input type="hidden" name="email" value="<%=cakes[i].email%>">
                 <input type="hidden" name="payed" value="<%=cakes[i].payed%>">                                                
-                <button type="submit" value="deletecart" name="submit" style="background-color: orange; padding:.5rem;display: inline-block;">Remove From Order</button>                            
+                <button type="submit" value="deletecart" name="submit" style="background-color: orange;border:none;cursor:pointer; padding:.5rem;display: inline-block;">Remove From Order</button>                            
             </form>
+        </div>
             <br>
             <br>
         <%}%>
